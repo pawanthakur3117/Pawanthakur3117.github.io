@@ -3,234 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan Kumar | Solutions Architect & Manager</title>
+    <title>Pawan Kumar | Lead Cloud Architect & Engineering Manager</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-color: #e2e8f0;
-            --accent-color: #38bdf8;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --text-muted: #94a3b8;
+            --bg: #0b1329;
+            --surface: #1c2541;
+            --surface-hover: #222e50;
+            --accent: #48cae4;
+            --text: #f8f9fa;
+            --text-muted: #96a7af;
+            --border: #3a506b;
+            --tag-bg: rgba(72, 202, 228, 0.1);
+            --ai-accent: #a855f7;
+            --ai-tag-bg: rgba(168, 85, 247, 0.1);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 950px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
+        /* Executive Header */
         header {
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+        }
+
+        .badge {
+            background-color: var(--tag-bg);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(72, 202, 228, 0.3);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 800;
             margin: 0 0 10px 0;
-            color: #fff;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--accent-color);
-            margin: 0 0 15px 0;
-            font-weight: 500;
-        }
-
-        .bio {
-            font-size: 1.1rem;
+        .title-sub {
+            font-size: 1.4rem;
             color: var(--text-muted);
-            max-width: 750px;
+            margin: 0 0 25px 0;
+            font-weight: 400;
         }
 
+        .lead-p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        /* Metrics Strip */
+        .metrics-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .metric-card {
+            background: linear-gradient(145deg, var(--surface), rgba(28, 37, 65, 0.6));
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .metric-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .metric-num.ai-color {
+            color: var(--ai-accent);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Layouts */
         section {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         h2 {
-            font-size: 1.5rem;
-            color: #fff;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 12px;
-            margin-bottom: 20px;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .grid {
+        h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .grid-custom {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 8px;
+        .experience-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card h3 {
-            margin: 0 0 10px 0;
-            color: #fff;
-            font-size: 1.1rem;
+        .experience-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
         }
 
-        .card ul {
-            margin: 0;
-            padding-left: 20px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .experience-card.ai-card-border:hover {
+            border-color: var(--ai-accent);
         }
 
-        .card ul li {
-            margin-bottom: 6px;
-        }
-
-        .project-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 8px;
+        .card-top {
             margin-bottom: 15px;
         }
 
-        .project-title {
-            font-weight: 600;
+        .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .card-icon.ai-color {
+            color: var(--ai-accent);
+        }
+
+        .experience-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
             color: #fff;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
         }
 
-        .project-tech {
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            font-family: monospace;
-        }
-
-        .project-desc {
+        .experience-card p {
+            margin: 0 0 15px 0;
             color: var(--text-muted);
-            margin-top: 8px;
             font-size: 0.95rem;
         }
 
-        .links {
+        /* Project Items */
+        .project-list {
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            margin-top: 20px;
         }
 
-        .btn {
-            display: inline-block;
+        .project-item {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-tech {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-family: monospace;
+            background-color: var(--tag-bg);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(72, 202, 228, 0.2);
+        }
+
+        .project-tech.ai-badge {
+            color: var(--ai-accent);
+            background-color: var(--ai-tag-bg);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .project-desc {
+            color: #cbd5e1;
+            margin-top: 12px;
+            font-size: 1rem;
+        }
+
+        /* Tech Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        .tag.highlight {
+            border-color: rgba(72, 202, 228, 0.4);
+            background-color: var(--tag-bg);
+            color: var(--accent);
+        }
+
+        .tag.ai-highlight {
+            border-color: rgba(168, 85, 247, 0.4);
+            background-color: var(--ai-tag-bg);
+            color: var(--ai-accent);
+        }
+
+        /* Action Buttons */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
             background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            padding: 8px 16px;
-            border-radius: 4px;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s;
         }
 
-        .btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .grid-custom { grid-template-columns: 1fr; }
+            .project-title { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Executive Header -->
         <header>
+            <span class="badge">AI Infrastructure & Enterprise Cloud Strategy</span>
             <h1>Pawan Kumar</h1>
-            <div class="subtitle"> Solutions Architect & Engineering Manager</div>
-            <p class="bio">
-                With over 16 years of IT experience transitioning from enterprise virtualization to core cloud architecture, I specialize in designing high-scale Microsoft Azure ecosystems, production migrations, and robust infrastructure governance. I bridge the gap between complex engineering requirements and strategic cloud frameworks while steering cross-functional agile teams.
+            <div class="title-sub">Lead Cloud Solutions Architect & Engineering Manager</div>
+            <p class="lead-p">
+                Proven technology leader with a 16-year trajectory scaling from enterprise virtualization to core Microsoft Azure cloud ecosystems. Specialized in driving AI-driven cloud-native infrastructure, high-scale workload modernizations, automated migration pathways, and managing elite technical delivery squads.
             </p>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/pawan-kumar-32246928/" class="btn" target="_blank">LinkedIn Profile</a>
-                <a href="pawanthakur3117@gmail.com" class="btn">Contact Email</a>
+            <div class="cta-group">
+                <a href="https://www.linkedin.com/in/pawan-kumar-32246928/" class="btn-primary" target="_blank">Connect on LinkedIn</a>
+                <a href="mailto:pawanthakur3117@gmail.com" class="btn-secondary">Contact Email</a>
             </div>
         </header>
 
+        <!-- Executive Metrics Dashboard -->
+        <div class="metrics-strip">
+            <div class="metric-card">
+                <div class="metric-num">16+</div>
+                <div class="metric-label">Years IT Experience</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-num">Azure</div>
+                <div class="metric-label">Core Cloud Ecosystems</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-num ai-color">AI-Ops</div>
+                <div class="metric-label">GPU Orchestration</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-num">Pre-Sales</div>
+                <div class="metric-label">Technical Proposals</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-num">IaC</div>
+                <div class="metric-label">Automated Pipelines</div>
+            </div>
+        </div>
+
+        <!-- Pillars of Expertise -->
         <section>
-            <h2>Core Technical Domains</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Cloud Architecture</h3>
-                    <ul>
-                        <li>Azure Enterprise Landing Zones</li>
-                        <li>CAF Governance & Policies</li>
-                        <li>High-Scale Migrations</li>
-                    </ul>
+            <h2>Pillars of Competency</h2>
+            <div class="grid-custom">
+                
+                <!-- New Pillar 1: AI Infrastructure -->
+                <div class="experience-card ai-card-border">
+                    <div class="card-top">
+                        <div class="card-icon ai-color">🧠</div>
+                        <h3>AI Orchestration & High-Performance Compute</h3>
+                        <p>Architecting environments custom-tailored for machine learning, model optimization, and high-performance computing clusters on Azure cloud-native nodes.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag ai-highlight">GPU Orchestration</span>
+                        <span class="tag ai-highlight">Azure AI Foundry</span>
+                        <span class="tag">Microsoft Fabric</span>
+                        <span class="tag">Vector Data Planes</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Networking & Desktop</h3>
-                    <ul>
-                        <li>Azure Virtual WAN (vWAN)</li>
-                        <li>Private Link Architectures</li>
-                        <li>Azure Virtual Desktop (AVD)</li>
-                    </ul>
+
+                <!-- Pillar 2: Presales -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <div class="card-icon">💼</div>
+                        <h3>Technical Pre-Sales & Strategy</h3>
+                        <p>Partnering with business development leads to translate intricate organizational requirements into winning cloud proposals and clear technical discovery blocks.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag highlight">Architectural Proposals</span>
+                        <span class="tag">Discovery & Scoping</span>
+                        <span class="tag">Deal Acceleration</span>
+                        <span class="tag">Executive Presentation</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>DevOps & Automation</h3>
-                    <ul>
-                        <li>Infrastructure as Code (IaC)</li>
-                        <li>Terraform Blueprinting</li>
-                        <li>CI/CD Deployment Pipelines</li>
-                    </ul>
+
+                <!-- Pillar 3: Architecture / Migrations -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <div class="card-icon">☁️</div>
+                        <h3>Automated Migrations & Landing Zones</h3>
+                        <p>Designing secure enterprise landing zones aligned tightly with the Cloud Adoption Framework (CAF) to host mass automated datacenter transitions.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag highlight">Azure Migrate</span>
+                        <span class="tag">Enterprise Landing Zones</span>
+                        <span class="tag">VMware-to-Cloud Shifts</span>
+                        <span class="tag">CAF Governance</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Emerging Workloads</h3>
-                    <ul>
-                        <li>GPU Cloud Orchestration</li>
-                        <li>Azure AI Infrastructure</li>
-                        <li>VMware-to-Cloud Journeys</li>
-                    </ul>
+
+                <!-- Pillar 4: DevOps -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <div class="card-icon">🛠️</div>
+                        <h3>DevOps & Infrastructure as Code</h3>
+                        <p>Enforcing infrastructure immutability principles via declarative syntax definitions and highly resilient continuous delivery pipelines.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag highlight">Terraform Blueprinting</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">CI/CD Pipelines</span>
+                        <span class="tag">GitOps Workflows</span>
+                    </div>
                 </div>
+
+                <!-- Pillar 5: Networking -->
+                <div class="experience-card">
+                    <div class="card-top">
+                        <div class="card-icon">🌐</div>
+                        <h3>Advanced Networking & Workspaces</h3>
+                        <p>Architecting multi-region interconnected cloud backbones and virtual desktop infrastructures for enterprise ecosystems.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag highlight">Azure Virtual WAN</span>
+                        <span class="tag">Private Link / Endpoints</span>
+                        <span class="tag">Azure Virtual Desktop (AVD)</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
+        <!-- Professional Impact Highlights -->
         <section>
             <h2>Professional Impact Highlights</h2>
-            
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Enterprise Cloud Migration & Architecture Strategy</span>
-                    <span class="project-tech">Azure / Terraform / vWAN</span>
+            <div class="project-list">
+                
+                <div class="project-item" style="border-left: 4px solid var(--ai-accent);">
+                    <div class="project-title">
+                        <span>Advanced Workload Orchestration & AI Data Modeling</span>
+                        <span class="project-tech ai-badge">Azure AI Foundry / Fabric / GPUs</span>
+                    </div>
+                    <div class="project-desc">
+                        Transitioned multi-disciplinary engineering infrastructure into the cognitive workspace by deploying dedicated GPU node allocation spaces. Combined Microsoft Fabric data layers with modern deep learning foundations to pave reliable development roads for specialized generative applications.
+                    </div>
                 </div>
-                <div class="project-desc">
-                    Architected end-to-end Enterprise Landing Zones utilizing Infrastructure as Code (Terraform) to facilitate secure, multi-region hybrid networking via Azure Virtual WAN. Streamlined governance policies to meet strict regulatory compliance structures while maintaining development velocity.
-                </div>
-            </div>
 
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Modern Infrastructure & Workload Modernization</span>
-                    <span class="project-tech">AVD / GPU Orchestration / Azure Migrate</span>
+                <div class="project-item">
+                    <div class="project-title">
+                        <span>Enterprise Cloud Migration & Architecture Strategy</span>
+                        <span class="project-tech">Azure Migrate / Terraform / vWAN</span>
+                    </div>
+                    <div class="project-desc">
+                        Architected end-to-end Enterprise Landing Zones utilizing Infrastructure as Code (Terraform) to facilitate secure, multi-region hybrid networking via Azure Virtual WAN. Engineered large-scale migrations to capture massive hardware asset transitions seamlessly off legacy hypervisors.
+                    </div>
                 </div>
-                <div class="project-desc">
-                    Led complex virtualization shifts moving traditional VMware footprint dependencies into agile, native cloud architectures. Engineered large-scale remote workforce infrastructure using Azure Virtual Desktop and scaled modern GPU environments optimized for specialized engineering workloads.
-                </div>
-            </div>
 
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Technical Leadership & Delivery Management</span>
-                    <span class="project-tech">Agile / Pre-Sales / Team Steering</span>
+                <div class="project-item">
+                    <div class="project-title">
+                        <span>Technical Leadership, Presales & Delivery Management</span>
+                        <span class="project-tech">Agile / Pre-Sales / Proposals</span>
+                    </div>
+                    <div class="project-desc">
+                        Coordinate and mentor high-performance technical delivery squads, acting as a crucial operational escalation anchor. Partner tightly with business development stakeholders to construct comprehensive architectural proposals, lead deep-dive discovery sessions, and systematically de-risk complex integrations to accelerate customer technical wins.
+                    </div>
                 </div>
-                <div class="project-desc">
-                    Coordinate and mentor high-performance technical delivery squads, acting as a crucial operational escalation anchor. Partner tightly with business development stakeholders to construct architectural proposals, clear complex discovery phases, and drive customer technical wins.
+
+            </div>
+        </section>
+
+        <!-- Technical Trajectory -->
+        <section>
+            <h2>Architectural Evolution</h2>
+            <div class="experience-card">
+                <div class="card-top">
+                    <p>My 16-year trajectory is defined by an ongoing dedication to core infrastructure paradigms as systems have modernized over nearly two decades:</p>
+                </div>
+                <div class="tag-container" style="margin-top: 10px;">
+                    <span class="tag">Windows Server Administration</span>
+                    <span class="tag">VMware Virtualization & Hypervisors</span>
+                    <span class="tag highlight">Datacenter-to-Cloud Migration (Azure Migrate)</span>
+                    <span class="tag highlight">Technical Presales & Discovery Strategy</span>
+                    <span class="tag highlight">Cloud-Native Architecture (Azure)</span>
+                    <span class="tag ai-highlight">AI-Driven Infrastructure & GPU Orchestration</span>
                 </div>
             </div>
         </section>
